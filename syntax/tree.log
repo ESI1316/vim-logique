@@ -1,0 +1,43 @@
+classe Noeud<T>
+	privé :
+		valeur : T
+		listeFils : List<Noeud<T>>
+	public :
+		constructeur Noeud<T>(valeur : T)
+		méthode getValeur() -> T
+		méthode setValeur(valeur : T)
+		méthode getNbFils() -> entier
+		méthode getFils(ind : entier) -> Noeud<T>
+		méthode setFils(ind : entier, fils : Noeud<T>)
+		méthode ajouterNoeudFils(fils : Noeud<T>)
+		méthode supprimerFils(ind : entier)
+fin classe
+
+classe Arbre<T>
+	privé : 
+		racine : Noeud<T>
+	public :
+		constructeur Arbre()
+		constructeur Arbre(racine : Noeud<T>)
+		méthode getRacine() -> Noeud<T>
+		méthode setRacine(racine : Noeud<T>)
+fin classe
+
+#Ex : nombre de noeuds (racine comprise)
+
+module nombreNoeuds(pommier : Arbre<T>) -> cpt
+	cpt : entier
+	cpt <- 0
+	si (pommier.getRacine != RIEN) alors
+		nbNoeudRecursif(pommier.getRacine(), cpt)
+	fin si
+
+	retourner cpt
+fin module
+
+module nbNoeudRecursif(noeud : Noeud<T>, cpt : entier)
+	cpt <- cpt + 1
+	pour i de 1 à noeud.getNombreFils() par 1 faire
+		nbNoeudRecursif(noeud.getFils(i), cpt)
+	fin pour
+fin module
