@@ -1,1 +1,1 @@
-au BufNewFile,BufRead *.log set filetype=logique
+au BufNewFile,BufRead *.logique set filetype=logique

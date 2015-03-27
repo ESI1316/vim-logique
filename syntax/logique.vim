@@ -13,7 +13,7 @@ let b:current_syntax = "logique"
 
 "syntax match className '\[a-Z]\+(<.+>)'
 syntax keyword logiqueKeyword classe nextgroup=className
-syntax keyword logiqueKeyword si pour tant que interface module methode méthode constructeur par de a à
+syntax keyword logiqueKeyword si pour tant que interface module methode méthode constructeur par de a à sinon
 syntax keyword logiqueKeyword alors faire
 "syntax match endOf ''
 syntax keyword logiqueKeyword fin nextgroup=endOf
