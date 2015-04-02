@@ -14,9 +14,9 @@ let b:current_syntax = "logique"
 "syntax match className '\[a-Z]\+(<.+>)'
 syntax keyword logiqueKeyword classe nextgroup=className
 syntax keyword logiqueKeyword si pour tant que interface module methode méthode constructeur par de a à sinon
-syntax keyword logiqueKeyword alors faire
+syntax keyword logiqueKeyword alors faire RIEN rien
 "syntax match endOf ''
-syntax keyword logiqueKeyword fin nextgroup=endOf
+syntax keyword logiqueKeyword fin nextgroup=startOf
 syntax keyword logiqueKeyword privé prive public
 syntax keyword logiqueKeyword retourner
 highlight link logiqueKeyword Keyword
@@ -27,11 +27,16 @@ highlight link logiqueFunction Function
 syntax match logiqueComment "\v#.*$"
 highlight link logiqueComment Comment
 
+syntax match logiqueOperator "ET "
+syntax match logiqueOperator "OU "
+syntax match logiqueOperator "et "
+syntax match logiqueOperator "ou "
 syntax match logiqueOperator "\v\*"
 syntax match logiqueOperator "\v/"
 syntax match logiqueOperator "\v\+"
 syntax match logiqueOperator "\v-"
 syntax match logiqueOperator "\v\?"
+syntax match logiqueOperator "\v\!\="
 syntax match logiqueOperator "\v\*\="
 syntax match logiqueOperator "\v/\="
 syntax match logiqueOperator "\v\+\="
@@ -43,6 +48,7 @@ syntax match logiqueOperator "\v\-\>"
 highlight link logiqueOperator Operator
 
 syntax region logiqueString start=/\v"/ skip=/\v\\./ end=/\v"/
+syntax region logiqueString start=/\v'/ skip=/\v\\./ end=/\v'/
 highlight link logiqueString String
 
 syntax region conditionBlock start=/alors/ end=/fin\ si/
